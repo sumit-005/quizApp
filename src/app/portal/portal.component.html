@@ -1,0 +1,27 @@
+    <div class="container">
+        <div class="row">
+            <h1>My Interview Portal</h1>
+            <hr>
+            <div class="col-md-12">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Test</th>
+                            <th>No of Questions</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of tests;let i = index;">
+                            <td>{{item.name}}</td>
+                            <td>{{item.questions.length}}</td>
+                            <td><a  [routerLink]="['test',i]"  class="btn btn-warning">Start Test</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        API Url: <a href="http://interviewapi.stagging.in/getQuizData" target="_blank">http://interviewapi.stagging.in/getQuizData</a>
+    </div>
+

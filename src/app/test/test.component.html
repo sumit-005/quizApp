@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+  <h1>My Interview Portal</h1>
+      <hr>
+      <div class="col-md-12">
+          <div class="panel panel-default">
+              <div class="panel-heading">{{testname}}</div>
+              <div class="panel-body" >
+                <form [formGroup]='data'>
+                  <div *ngIf="testQuestion == undefined">
+                    <label>{{testQ}}</label>
+                    <div class="radio" *ngFor="let q of options;let i=index">
+                        <label>
+                            <input type="radio" name="index" value={{i}} formControlName="index"> {{q}}
+                        </label>
+                    </div>
+                    </div>
+
+                    <div *ngIf="testQuestion != undefined">
+                      <label>{{testQ}}</label>
+                      <div class="checkbox" *ngFor="let q of options;let i=index">
+                          <label>
+                              <input type="checkbox" (click)="checkbox(i,$event.target.checked)" name="index" value={{i}} > {{q}}
+                          </label>
+                      </div>
+                      </div>
+                </form>
+              </div>
+
+              <div class="panel-footer">
+                <a  (click)="onFinish()"  *ngIf="length <= count " class="btn btn-danger">Finish</a>
+
+                  <a (click)="onNext() " *ngIf="length > count " class="btn btn-success">Next</a>
+
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
