@@ -13,8 +13,10 @@ export class PortalComponent implements OnInit {
 
   ngOnInit() {
 
-  this.http.get<{message: string, status: string, tests: any}>('http://interviewapi.stgbuild.com/getQuizData')
+  this.http.get<{message: string, status: string, tests: any}>('http://localhost:5000')
   .subscribe(res => {
+
+    console.log(res);
 
     this.tests = res.tests;
 
