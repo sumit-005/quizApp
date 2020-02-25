@@ -47,11 +47,10 @@ export class TestComponent implements OnInit {
 
     this.http
       .get<{ message: string; status: string; tests: any }>(
-        "http://interviewapi.stgbuild.com/getQuizData"
+        'https://quizapp-005.herokuapp.com/'
       )
       .subscribe(res => {
         this.tests = res.tests;
-        console.log(this.tests);
 
         this.testname = this.tests[this.id].name;
 
@@ -61,16 +60,6 @@ export class TestComponent implements OnInit {
 
         this.options = this.tests[this.id].questions[this.count].options;
 
-        // if (this.testQuestion === undefined) {
-        //   if (
-        //     this.data.value.index ==
-        //     this.tests[this.id].questions[this.count].correctOptionIndex
-        //   ) {
-        //     this.result++;
-        //   }
-        // }
-
-        console.log(this.data.value);
 
         this.length = this.tests[this.id].questions.length;
 
@@ -83,7 +72,6 @@ export class TestComponent implements OnInit {
   onNext() {
 
     this.check();
-    console.log(this.result);
 
     this.count++;
 
@@ -92,7 +80,6 @@ export class TestComponent implements OnInit {
       this.options = this.tests[this.id].questions[this.count].options;
       this.testQuestion = this.tests[this.id].questions[this.count].type;
     } else {
-      console.log("finish");
     }
 
     this.data.reset();

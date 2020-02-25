@@ -20,19 +20,15 @@ export class ResultComponent implements OnInit {
     this.result = this.route.snapshot.params.name;
     this.id = this.route.snapshot.params.id;
 
-    console.log(this.result);
-    console.log(this.id);
 
 
     this.http
       .get<{ message: string; status: string; tests: any }>(
-        'http://interviewapi.stgbuild.com/getQuizData'
+        'https://quizapp-005.herokuapp.com/'
       )
       .subscribe(res => {
         this.tests = res.tests;
-        console.log(this.tests);
         this.length = this.tests[this.id].questions.length;
-        console.log(this.length);
 
 
         this.wrngAns = this.length - this.result;

@@ -13,10 +13,8 @@ export class PortalComponent implements OnInit {
 
   ngOnInit() {
 
-  this.http.get<{message: string, status: string, tests: any}>('http://localhost:5000')
+  this.http.get<{message: string, status: string, tests: any}>('https://quizapp-005.herokuapp.com/')
   .subscribe(res => {
-
-    console.log(res);
 
     this.tests = res.tests;
 

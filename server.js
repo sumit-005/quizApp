@@ -24,7 +24,7 @@ mongoose.connect('mongodb+srv://sumit-005:Mtj7m6pZVyHK8OpR@cluster0-w7rcj.mongod
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use((req,res,next) =>{
-  res.setHeader("Access-Control-Allow-Origin","http://localhost:4200");
+  res.setHeader("Access-Control-Allow-Origin","*");
   res.setHeader(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept, Authorization,token");
@@ -55,6 +55,6 @@ app.get('', (req,res,next)=>{
 app.set("port", port);
 
 
-app.listen(port);
+app.listen(5000);
 console.log("Running...");
 
